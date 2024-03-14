@@ -9,11 +9,11 @@ import {
 //i18n
 import i18n from "../../../i18n";
 import { get, map } from "lodash";
-import languages from '../../../locales/languages';
+import languages from '../../../locals/languages';
 
-const LanguageDropdown = (): JSX.Element => {
+const LanguageDropdown = () => {
   const [menu, setmenu] = useState(false);
-  const [selectedLang, setSelectedLang] = useState("eng");
+  const [selectedLang, setSelectedLang] = useState<string>("eng");
 
   useEffect(() => {
     const currentLanguage = localStorage.getItem("I18N_LANGUAGE");
@@ -33,7 +33,7 @@ const LanguageDropdown = (): JSX.Element => {
       }
     }
   }, [])
-  const changeLanguageAction = lang => {
+  const changeLanguageAction = (lang: string) => {
     //set language as i18n
     i18n.changeLanguage(lang);
     localStorage.setItem("I18N_LANGUAGE", lang);
@@ -57,7 +57,7 @@ const LanguageDropdown = (): JSX.Element => {
             {get(languages, `${selectedLang}.label`)}
           </span>
         </DropdownToggle>
-        <DropdownMenu className="language-switch" right>
+        <DropdownMenu className="language-switch" end>
           {map(Object.keys(languages), key => (
             <DropdownItem
               key={key}

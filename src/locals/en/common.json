@@ -1,0 +1,9 @@
+{
+    "common": {
+        "login": "Login",
+        "author": "Author is:<strong><i>code and beast</i><strong>",
+        "key": "{{what}} is {{how}}",
+        "welclome": "Welcome",
+        "rememberMe": "Remember Me"
+    }
+}

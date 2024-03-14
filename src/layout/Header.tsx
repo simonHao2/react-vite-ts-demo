@@ -1,13 +1,11 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import "react-drawer/lib/react-drawer.css";
 import { Link } from "react-router-dom";
+import LanguageDropdown from "../components/Common/LanguageDropdown/LanguageDropdown";
 
-
-// import ProfileMenu from "./ProfileMenu";
-
-const Header = (): JSX.Element => {
+const Header = () => {
   const [search, setsearch] = useState(false);
 
   function tToggle() {
@@ -87,8 +85,7 @@ const Header = (): JSX.Element => {
                 </form>
               </div>
             </div>
-            {/* <LanguageDropdown /> */}
-
+            <LanguageDropdown />
             {/* <ProfileMenu /> */}
           </div>
         </div>

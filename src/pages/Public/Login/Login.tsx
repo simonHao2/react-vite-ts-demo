@@ -1,5 +1,4 @@
 import { useState } from "react";
-import MetaTags from "react-meta-tags";
 // import { useAppSelector, useAppDispatch } from "../../../redux/hooks";
 import { Container, Row, Col, Card, CardBody, Form, Input, Label, FormFeedback } from "reactstrap";
 //* Import css modules if need
@@ -7,25 +6,28 @@ import profile from "../../../assets/images/profile-img.png";
 import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import LoadingButton from "../../../components/LoadingButton/LoadingButton";
 
 const Login = () => {
 
     const { t } = useTranslation();
     const [isRememberMe, setIsRememberMe] = useState<boolean>(localStorage.getItem("isRememberMe") === 'true' ? true : false)
     // const [loading, setLoading] = useState<boolean>(false);
+    const error = false;
+    const loading = false;
 
     const validation = useFormik({
         enableReinitialize: true,
         initialValues: {
-            email: '',
-            password: '',
+            email: 'admin@email.com',
+            password: 'Aa123456',
 
         },
         validationSchema: Yup.object({
             email: Yup.string().email('emailIsInvalid').required('emailIsRequired'),
             password: Yup.string().min(8, 'passwordLessThan8chars').matches(/^(?=.*[a-z])(?=.*[A-Z])/, 'passwordMustHaveLowUpperLetter').required('passwordIsRequired'),
         }),
-        onSubmit: async (values:any) => {
+        onSubmit: async (values: any) => {
             // setLoading(true);
             // const { email, password } = values;
             if (isRememberMe) {
@@ -43,13 +45,9 @@ const Login = () => {
         localStorage.setItem('isRememberMe', value.toString());
         setIsRememberMe(value);
     }
-
+    document.title = "Login | Login - CMS"
     return (
         <div>
-            <MetaTags>
-                {/* <title>Login | Skote - React Admin & Dashboard Template</title> */}
-                <title>Login | Login - CMS </title>
-            </MetaTags>
             <div className="account-pages my-5 pt-sm-5">
                 <Container>
                     <Row className="justify-content-center">
@@ -137,12 +135,12 @@ const Login = () => {
                                             </div>
 
                                             <div className="mt-3 d-grid">
-                                                {/* <LoadingButton
-                          color="primary"
-                          type="submit"
-                          buttonText={t("common.login")}
-                          loading={error ? false : loading}
-                        /> */}
+                                                <LoadingButton
+                                                    color="primary"
+                                                    type="submit"
+                                                    buttonText={t("common.login")}
+                                                    loading={error ? false : loading}
+                                                />
                                             </div>
                                         </Form>
                                     </div>

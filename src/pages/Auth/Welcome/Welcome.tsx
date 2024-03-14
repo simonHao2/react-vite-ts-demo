@@ -27,8 +27,10 @@ const Welcome = () => {
                 <Row>
                   <Col xs="7">
                     <div className="text-primary p-3">
-                      <h5 className="text-primary">Welcome Back !</h5>
+                      <h5 className="text-primary"><strong><i>Welcome Back !</i></strong></h5>
                       <p>CMS Dashboard</p>
+                      <div dangerouslySetInnerHTML={{ __html: t("common.author") }} ></div>
+                      <p>{t("common.key", { what: 'i18next', how: 'great' })}</p>
                     </div>
                   </Col>
                   <Col xs="5" className="align-self-end">

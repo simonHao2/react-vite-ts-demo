@@ -5,7 +5,10 @@
         "key": "{{what}} is {{how}}",
         "welclome": "Welcome",
         "rememberMe": "Remember Me",
-        "dashboard":"仪表板",
-        "administration": "权限管理"
+        "dashboard": "仪表板",
+        "administration": {
+            "title": "权限管理",
+            "users": "用户列表"
+        }
     }
 }

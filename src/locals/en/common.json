@@ -6,6 +6,9 @@
         "welclome": "Welcome",
         "rememberMe": "Remember Me",
         "dashboard": "Dashboard",
-        "administration": "Administration"
+        "administration": {
+            "title": "Administration",
+            "users": "User List"
+        }
     }
 }

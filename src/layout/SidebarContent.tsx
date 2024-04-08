@@ -106,11 +106,11 @@ const SidebarContent = () => {
                         <li>
                             <Link to="/#" className="has-arrow">
                                 <i className="bx bx-shield-quarter"></i>
-                                <span>{t("common.administration")}</span>
+                                <span>{t("common.administration.title")}</span>
                             </Link>
                             <ul className="sub-menu" aria-expanded="true">
                                 <li>
-                                    <Link to="/users">{t("admin.users")}</Link>
+                                    <Link to="/users">{t("common.administration.users")}</Link>
                                 </li>
                             </ul>
                         </li>

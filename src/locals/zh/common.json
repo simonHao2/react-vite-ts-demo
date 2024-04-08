@@ -6,6 +6,9 @@
         "welclome": "Welcome",
         "rememberMe": "Remember Me",
         "dashboard":"儀表板",
-        "administration": "權限管理"
+        "administration": {
+            "title": "權限管理",
+            "users": "用户列表"
+        }
     }
 }

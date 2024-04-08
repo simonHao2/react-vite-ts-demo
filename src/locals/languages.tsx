@@ -3,7 +3,7 @@ import enFlag from '../assets/images/flags/us.jpg';
 import zhFlag from '../assets/images/flags/hk.jpg';
 const languages = {
     eng: {
-        label: 'ENG',
+        label: 'EN',
         flag: enFlag
     },
     zh: {

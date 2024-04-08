@@ -1,5 +1,6 @@
 import {
   Navigate,
+  Outlet,
   Route,
   Routes,
 } from "react-router-dom";
@@ -13,9 +14,19 @@ import UserList from "./pages/Auth/Administration/UserList";
 const App = () => {
   return (
     <Routes>
+      <Route
+        // The layout will wrap all the pages inside this route
+        element={
+          <AuthLayout>
+            <Outlet />
+          </AuthLayout>
+        }
+      >
+        <Route path="/dashboard" element={<Welecome />} />
+        <Route path="/users" element={<UserList />} />
+      </Route>
       <Route path="/login" element={<Login />} />
-      <Route path="/dashboard" element={<AuthLayout> <Welecome /> </AuthLayout>} />
-      <Route path="/users" element={<AuthLayout> <UserList /> </AuthLayout>} />
+
       <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
   );

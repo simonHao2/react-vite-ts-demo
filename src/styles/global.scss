@@ -1,0 +1,31 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+// .sidebar-enable .hidden-in-sidebar {
+//   display: none;
+// }
+
+.pagination {
+  float: right !important;
+  list-style: none,
+}
+
+.borderColor {
+  border-color: red;
+}
+
+.tbody-class {
+  table-layout: fixed;
+  word-break: break-all;
+}
+
+//BootstrapTable headerWrapperClasses 固定header 
+.table-responsive {
+  thead th {
+    position: sticky;
+    background-color: #ffffff;
+    top: -1px;
+    z-index: 1;
+  }
+}

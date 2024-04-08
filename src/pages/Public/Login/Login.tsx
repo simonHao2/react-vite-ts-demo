@@ -7,10 +7,11 @@ import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import LoadingButton from "../../../components/LoadingButton/LoadingButton";
-
+import { useNavigate } from "react-router";
 const Login = () => {
 
     const { t } = useTranslation();
+    const navigate = useNavigate();
     const [isRememberMe, setIsRememberMe] = useState<boolean>(localStorage.getItem("isRememberMe") === 'true' ? true : false)
     // const [loading, setLoading] = useState<boolean>(false);
     const error = false;
@@ -37,6 +38,7 @@ const Login = () => {
                 localStorage.removeItem('Email');
                 localStorage.removeItem('Password');
             }
+            navigate("/dashboard");
             //   dispatch({ type: loginActions.USER_LOGIN, email, password });
         }
     });

@@ -18,8 +18,8 @@ const Welcome = () => {
         <Container fluid>
           {/* Render Breadcrumb */}
           <Breadcrumbs
-            title={t("dashboards.title")}
-            breadcrumbItem={t("dashboards.title")}
+            title={t("dashboard.title")}
+            breadcrumbItem={t("dashboard.title")}
           />
           <Row>
             <Card className="overflow-hidden">

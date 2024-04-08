@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 const SidebarContent = () => {
     const { t } = useTranslation();
     const ref = useRef<any>();
-    // Use ComponentDidMount and ComponentDidUpdate method symultaniously
+
     const activateParentDropdown = useCallback((item: any) => {
         item.classList.add("active");
         const parent = item.parentElement;
@@ -44,7 +44,7 @@ const SidebarContent = () => {
                     }
                 }
             }
-            scrollElement(item);
+            // scrollElement(item);
             return false;
         }
         scrollElement(item);
@@ -79,7 +79,7 @@ const SidebarContent = () => {
         }
     });
 
-    function scrollElement(item: { offsetTop: number; }) {
+    function scrollElement(item: any) {
         if (item) {
             const currentPosition = item.offsetTop;
             if (currentPosition > window.innerHeight && ref.current) {
@@ -99,15 +99,20 @@ const SidebarContent = () => {
                         <li>
                             <Link to="/dashboard" className="">
                                 <i className="bx bx-home-circle"></i>
-                                <span>{t("common.dashboards")}</span>
+                                <span>{t("common.dashboard")}</span>
                             </Link>
                         </li>
-                        {/* ======Dashboard====== */}
+                        {/* ======Administration====== */}
                         <li>
-                            <Link to="/users" className="">
-                                <i className="bx bx-home-circle"></i>
-                                <span>{t("common.users")}</span>
+                            <Link to="/#" className="has-arrow">
+                                <i className="bx bx-shield-quarter"></i>
+                                <span>{t("common.administration")}</span>
                             </Link>
+                            <ul className="sub-menu" aria-expanded="true">
+                                <li>
+                                    <Link to="/users">{t("admin.users")}</Link>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

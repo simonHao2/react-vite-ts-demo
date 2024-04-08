@@ -1,7 +1,9 @@
 import common from './common.json';
+import dashboard from './dashboard.json';
 import user from './user.json';
  const en = {
     ...common,
-    ...user
+    ...user,
+    ...dashboard
 }
 export default en;

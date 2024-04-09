@@ -112,6 +112,9 @@ const SidebarContent = () => {
                                 <li>
                                     <Link to="/users">{t("common.administration.users")}</Link>
                                 </li>
+                                <li>
+                                    <Link to="/roles">{t("common.administration.roles")}</Link>
+                                </li>
                             </ul>
                         </li>
                     </ul>

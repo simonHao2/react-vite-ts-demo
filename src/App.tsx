@@ -11,6 +11,7 @@ import "./styles/global.scss";
 import Welecome from "./pages/Auth/Welcome/Welcome";
 import Login from "./pages/Public/Login/Login";
 import UserList from "./pages/Auth/Administration/UserList";
+import RoleList from "./pages/Auth/Administration/RoleList";
 const App = () => {
   return (
     <Routes>
@@ -24,6 +25,7 @@ const App = () => {
       >
         <Route path="/dashboard" element={<Welecome />} />
         <Route path="/users" element={<UserList />} />
+        <Route path="/roles" element={<RoleList />} />
       </Route>
       <Route path="/login" element={<Login />} />
 

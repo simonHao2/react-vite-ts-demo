@@ -8,7 +8,8 @@
         "dashboard": "仪表板",
         "administration": {
             "title": "权限管理",
-            "users": "用户列表"
+            "users": "用户列表",
+            "roles": "角色列表"
         }
     }
 }

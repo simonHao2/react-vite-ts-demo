@@ -5,27 +5,32 @@ import {
   Col,
   Card,
   CardBody,
+  Button,
 } from "reactstrap";
 import profileImg from "../../../assets/images/profile-img.png";
 import { useTranslation } from "react-i18next";
 import Breadcrumbs from "../../../components/Common/Breadcrumbs";
 import AsyncSelect from 'react-select/async';
+import { decrement, increment, selectCount } from "../../../redux/slice/count.slice";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 
 const Welcome = () => {
   const { t } = useTranslation();
   document.title = "Dashboard | Skote - Vite React Admin & Dashboard Template";
 
   const [options, setOptions] = useState<any>([]);
+  const count = useAppSelector(selectCount);
+  const dispatch = useAppDispatch();
 
   const filterOptions = (inputValue: string) => {
-  const filters =  options.filter((i) => i.label.toLowerCase().includes(inputValue.toLowerCase()));
-    if(filters.length>0){
+    const filters = options.filter((i) => i.label.toLowerCase().includes(inputValue.toLowerCase()));
+    if (filters.length > 0) {
       return filters;
-    }else{
-        //call api
-        
+    } else {
+      //call api
+
     }
-    
+
   };
   const fetchDogs = async () => {
     const apiUrl = 'https://api.thedogapi.com/v1'
@@ -48,6 +53,7 @@ const Welcome = () => {
         resolve(filterOptions(inputValue));
       }, 1000);
     });
+
 
   return (
     <React.Fragment>
@@ -75,6 +81,26 @@ const Welcome = () => {
                   </Col>
                 </Row>
               </div>
+              <Row>
+                <div>
+                  <div className="mb-3">
+                    <Button
+                      aria-label="Increment value"
+                      onClick={() => dispatch(increment())}
+                    >
+                      +
+                    </Button>
+                    <span className="text-danger">{count}</span>
+                    <Button
+                      aria-label="Decrement value"
+                      onClick={() => dispatch(decrement())}
+                    >
+                      -
+                    </Button>
+                  </div>
+                  {/* 这里省略了额外的 render 代码 */}
+                </div>
+              </Row>
             </Card>
           </Row>
           {/* Test Select */}

@@ -124,7 +124,7 @@ const RoleList = () => {
 
     const toggle_detailRole = (role) => {
         if (role) {
-            console.log(role);
+            // console.log(role);
         }
     }
 

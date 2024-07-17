@@ -5,11 +5,15 @@
         "key": "{{what}} is {{how}}",
         "welclome": "Welcome",
         "rememberMe": "Remember Me",
-        "dashboard":"儀表板",
+        "dashboard": "儀表板",
         "administration": {
             "title": "權限管理",
             "users": "用户列表",
             "roles": "角色清單"
-        }
+        },
+        "Showing": "顯示",
+        "to": "至",
+        "of": "條目,",
+        "Results": "總條目"
     }
 }

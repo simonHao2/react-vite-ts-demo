@@ -12,6 +12,8 @@ import Welecome from "./pages/Auth/Welcome/Welcome";
 import Login from "./pages/Public/Login/Login";
 import UserList from "./pages/Auth/Administration/UserList";
 import RoleList from "./pages/Auth/Administration/RoleList";
+import LineCharts from "./pages/Auth/Charts/LineCharts";
+import HistogramCharts from "./pages/Auth/Charts/HistogramCharts";
 const App = () => {
   return (
     <Routes>
@@ -26,6 +28,8 @@ const App = () => {
         <Route path="/dashboard" element={<Welecome />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/roles" element={<RoleList />} />
+        <Route path="/lineCharts" element={<LineCharts />} />
+        <Route path="/histogramCharts" element={<HistogramCharts />} />
       </Route>
       <Route path="/login" element={<Login />} />
 

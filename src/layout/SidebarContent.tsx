@@ -117,6 +117,21 @@ const SidebarContent = () => {
                                 </li>
                             </ul>
                         </li>
+                          {/* ======Charts====== */}
+                          <li>
+                            <Link to="/#" className="has-arrow">
+                                <i className="bx bxs-bar-chart-alt-2"></i>
+                                <span>Charts</span>
+                            </Link>
+                            <ul className="sub-menu" aria-expanded="true">
+                                <li>
+                                    <Link to="/lineCharts">Line Charts</Link>
+                                </li>
+                                <li>
+                                    <Link to="/histogramCharts">Histogram Charts</Link>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </SimpleBar >

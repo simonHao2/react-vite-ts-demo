@@ -6,7 +6,8 @@ import {
     Card,
     CardBody,
     // UncontrolledTooltip,
-    Button
+    Button,
+    UncontrolledTooltip
 } from "reactstrap";
 // import toastr from 'toastr';
 //Import Breadcrumb
@@ -49,7 +50,7 @@ const RoleList = () => {
     //     rolesTotal: state.role.rolesTotal,
     //     permissions: state.role.permissions
     // }));
-    const roles = [
+    const roleData = [
         {
             "_id": "612db37174cd7493f4b57e22",
             "ctime": "2024-03-19T07:02:28.108Z",
@@ -60,27 +61,14 @@ const RoleList = () => {
     ];
 
     useEffect(() => {
-
         setLoaded(true);
-        setData(setRow(roles))
-        setTotalCount(roles.length);
+        if (roleData) {
+            setData(setRow(roleData))
+            setTotalCount(roleData.length);
+        }
     }, []);
 
-    // const fetchRoleList = () => {
-    //     setLoaded(false);
-    //     dispatch({ type: roleActions.GET_ROLES, page, sizePerPage, sortField, sortOrder, searchKey })
-    // }
-    // const fetchPermissions = () => {
-    //     dispatch({ type: roleActions.GET_PERMISSIONS })
-    // }
 
-    // useEffect(() => {
-    //     fetchRoleList();
-    // }, [dispatch, page, sizePerPage, sortField, sortOrder, searchKey,,localStorage.getItem("I18N_LANGUAGE")]);
-
-    // useEffect(() => {
-    //     fetchPermissions();
-    // }, [])
 
     const columns = [
         {
@@ -134,6 +122,12 @@ const RoleList = () => {
     //     )
     // };
 
+    const toggle_detailRole = (role) => {
+        if (role) {
+            console.log(role);
+        }
+    }
+
 
     const setRow = (list: any = []) => {
         return list.map((item: any, index: number) => {
@@ -144,7 +138,7 @@ const RoleList = () => {
                 permissions:
                     item.permissions && item.permissions.length > 100 ? (
                         <div>
-                            {item.permissions
+                            {item.permissions && item.permissions
                                 .substring(0, 100)
                                 .split(",")
                                 .map((p: string, subIdx: number) => {
@@ -158,15 +152,15 @@ const RoleList = () => {
                                 to="#"
                                 className="mr-3 text-primary"
                                 title={item.permissions}
-                            // onClick={() => {
-                            //   toggle_detailRole(item);
-                            // }}
+                                onClick={() => {
+                                    toggle_detailRole(item);
+                                }}
                             >
                                 ...&lt;more&gt;
                             </Link>
                         </div>
                     ) : (
-                        item.permissions && item.permissions.split(",").map((p: string, index: number) => {
+                        item.permissions && item.permissions.split(",").map((p, index) => {
                             return (
                                 <span key={index} className="badge rounded-pill text-truncate bg-info float-start me-2 mb-1">
                                     {p}
@@ -176,21 +170,19 @@ const RoleList = () => {
                     ),
                 action: (
                     <div>
-                        {/* {permissionLevel("Role", "View") ? (
-                  <Link to="#" className="mr-3 text-primary">
-                    <i
-                      className="fas fa-eye text-success mr-1"
-                      id={"detailtooltip" + index}
-                      onClick={() => {
-                        toggle_detailRole(item);
-                      }}
-                    ></i>
-                    <UncontrolledTooltip placement="top" target={"detailtooltip" + index}>
-                      {t("common.view")}
-                    </UncontrolledTooltip>
-                  </Link>
-                ) : null}
-                &nbsp;&nbsp;&nbsp;&nbsp; */}
+                        <Link to="#" className="mr-3 text-primary">
+                            <i
+                                className="fas fa-eye text-success mr-1"
+                                id={"detailtooltip" + index}
+                                onClick={() => {
+                                    toggle_detailRole(item);
+                                }}
+                            ></i>
+                            <UncontrolledTooltip placement="top" target={"detailtooltip" + index}>
+                                {t("common.view")}
+                            </UncontrolledTooltip>
+                        </Link>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
                 ),
             };
@@ -216,7 +208,7 @@ const RoleList = () => {
         setPage(1);
         setSizePerPage(page);
     }
-    document.title="Role & Role List";
+    document.title = "Role & Role List";
 
     if (!loaded) {
         return <PageLoading />;
@@ -259,9 +251,9 @@ const RoleList = () => {
                                         </Col>
                                     </Row>
                                     <RemoteTablePagination
+                                        keyField={"_id"}
                                         data={data}
                                         columns={columns}
-                                        keyField={"no"}
                                         sortField={sortField}
                                         sortOrder={sortOrder}
                                         totalSize={totalCount}

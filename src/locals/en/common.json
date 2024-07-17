@@ -10,6 +10,10 @@
             "title": "Administration",
             "users": "User List",
             "roles": "Role List"
-        }
+        },
+        "Showing": "Showing",
+        "to": "to",
+        "of": "of",
+        "Results": "Results"
     }
 }

@@ -10,11 +10,7 @@ const Sidebar = (): JSX.Element => {
         <div className="navbar-brand-box">
           <Link to="/" className="logo logo-light" style={{ color: "white" }}>
             <span className="logo-sm">
-              {TAG ? (
-                <h5 className="text-white mt-4 mb-0">CMS</h5>
-              ) : (
-                <h6 className="text-white mt-4">CMS BASE UI</h6>
-              )}
+              <h5 className="text-white mt-4 mb-0">CMS</h5>
             </span>
             <span className="logo-lg">
               {TAG ? (

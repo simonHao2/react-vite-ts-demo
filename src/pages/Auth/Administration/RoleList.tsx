@@ -7,7 +7,7 @@ import {
     CardBody,
     // UncontrolledTooltip,
     Button,
-    UncontrolledTooltip
+    UncontrolledTooltip,
 } from "reactstrap";
 // import toastr from 'toastr';
 //Import Breadcrumb
@@ -72,7 +72,7 @@ const RoleList = () => {
 
     const columns = [
         {
-            dataField: "_id",
+            dataField: "id",
             text: "No",
             sort: true,
             hidden: true,
@@ -81,7 +81,7 @@ const RoleList = () => {
             dataField: "name",
             text: t("role.name"),
             sort: true,
-            onSort: (field: string, order: string) => {
+            onSort: (field, order) => {
                 setSortField(field);
                 setSortOrder(order);
             },
@@ -89,18 +89,66 @@ const RoleList = () => {
         {
             dataField: "permissions",
             text: t("role.permissions"),
-            sort: true,
-            onSort: (field: string, order: string) => {
+            sort: false,
+            onSort: (field, order) => {
                 setSortField(field);
                 setSortOrder(order);
             },
+            style: { width: '600px' },
+            formatter: (cell, row) => (
+                <div>
+                    {cell.split(",").length > 8 && !row.showMore ? (
+                        <div className="d-flex flex-wrap align-items-center">
+                            {(cell.split(",").slice(0, 8)).map((p, subIdx) => (
+                                <span key={subIdx} className="badge rounded-pill text-truncate bg-info me-2 mb-1">
+                                    {p}
+                                </span>
+                            ))}
+                            <span className="mb-1">
+                                {t('common.and')} {cell.split(",").length - cell.split(",").slice(0, 8).length} {t('common.otherPermissions')}
+                                <span className="text-secondary font-weight-bold ms-2" style={{ cursor: 'pointer', textDecorationLine: 'underline' }} onClick={() => handleToggle(row, true)}>
+                                    {t('common.more')}
+                                </span>
+                            </span>
+                        </div>
+                    ) : (
+                        <div className="d-flex flex-wrap align-items-center">
+                            {cell.split(",").map((p, subIdx) => (
+                                <span key={subIdx} className="badge rounded-pill text-truncate bg-info me-2 mb-1">
+                                    {p}
+                                </span>
+                            ))}
+                            {row.showMore === true && (
+                                <span className="mb-1">
+                                    <span className="text-secondary font-weight-bold ms-2" style={{ cursor: 'pointer', textDecorationLine: 'underline' }} onClick={() => handleToggle(row, false)}>
+                                        {t('common.hide')}
+                                    </span>
+                                </span>
+                            )}
+                        </div>
+                    )}
+                </div>
+            ),
         },
         {
             dataField: "action",
             text: t("common.action"),
             sort: true,
+            style: { width: '100px' },
+            formatter: (cell) => (
+                <div className="d-flex justify-content-start">
+                    {cell}
+                </div>
+            )
         },
     ];
+    const handleToggle = (currentRow: any, showMore) => {
+        setData(prevData =>
+            prevData.map((row: any) =>
+                row.id === currentRow.id ? { ...row, showMore } : row
+            )
+        );
+    };
     // const status = {
     //     true: (
     //         <Badge
@@ -135,44 +183,12 @@ const RoleList = () => {
                 no: index,
                 _id: item._id,
                 name: item.name,
-                permissions:
-                    item.permissions && item.permissions.length > 100 ? (
-                        <div>
-                            {item.permissions && item.permissions
-                                .substring(0, 100)
-                                .split(",")
-                                .map((p: string, subIdx: number) => {
-                                    return (
-                                        <span key={subIdx} className="badge rounded-pill text-truncate bg-info float-start me-2 mb-1">
-                                            {p}
-                                        </span>
-                                    );
-                                })}
-                            <Link
-                                to="#"
-                                className="mr-3 text-primary"
-                                title={item.permissions}
-                                onClick={() => {
-                                    toggle_detailRole(item);
-                                }}
-                            >
-                                ...&lt;more&gt;
-                            </Link>
-                        </div>
-                    ) : (
-                        item.permissions && item.permissions.split(",").map((p, index) => {
-                            return (
-                                <span key={index} className="badge rounded-pill text-truncate bg-info float-start me-2 mb-1">
-                                    {p}
-                                </span>
-                            );
-                        })
-                    ),
+                permissions: item.permissions,
                 action: (
-                    <div>
-                        <Link to="#" className="mr-3 text-primary">
+                    <div className="d-flex gap-2">
+                        <Link to="#" className="text-primary">
                             <i
-                                className="fas fa-eye text-success mr-1"
+                                className="fas fa-eye text-success"
                                 id={"detailtooltip" + index}
                                 onClick={() => {
                                     toggle_detailRole(item);
@@ -182,7 +198,6 @@ const RoleList = () => {
                                 {t("common.view")}
                             </UncontrolledTooltip>
                         </Link>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
                 ),
             };

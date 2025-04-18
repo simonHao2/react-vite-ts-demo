@@ -4,6 +4,7 @@ import { useState } from "react";
 import "react-drawer/lib/react-drawer.css";
 import { Link } from "react-router-dom";
 import LanguageDropdown from "../components/Common/LanguageDropdown/LanguageDropdown";
+import ProfileMenu from "../components/Common/ProfileMenu/ProfileMenu";
 
 const Header = () => {
   const [search, setsearch] = useState(false);
@@ -40,20 +41,20 @@ const Header = () => {
               onClick={() => {
                 tToggle();
               }}
-              className="btn btn-sm px-3 font-size-16 header-item "
+              className="btn btn-sm px-3 font-size-16 header-item"
               id="vertical-menu-btn"
             >
               <i className="fa fa-fw fa-bars" />
             </button>
           </div>
-          <div className="d-flex">
+          <div className="d-flex align-items-center">
             <div className="dropdown d-inline-block d-lg-none ms-2">
               <button
                 onClick={() => {
                   setsearch(!search);
                 }}
                 type="button"
-                className="btn header-item noti-icon "
+                className="btn header-item noti-icon"
                 id="page-header-search-dropdown"
               >
                 <i className="mdi mdi-magnify" />
@@ -86,11 +87,10 @@ const Header = () => {
               </div>
             </div>
             <LanguageDropdown />
-            {/* <ProfileMenu /> */}
+            <ProfileMenu />
           </div>
         </div>
       </header>
-
     </>
   );
 };

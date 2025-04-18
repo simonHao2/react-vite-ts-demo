@@ -14,6 +14,12 @@
         "Showing": "顯示",
         "to": "至",
         "of": "條目,",
-        "Results": "總條目"
+        "Results": "總條目",
+        "search": "搜索",
+        "more": "更多",
+        "and": "和",
+        "otherPermissions": "其他權限",
+        "hide": "隱藏",
+        "action": "操作"
     }
 }

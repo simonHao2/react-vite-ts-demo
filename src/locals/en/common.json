@@ -14,6 +14,12 @@
         "Showing": "Showing",
         "to": "to",
         "of": "of",
-        "Results": "Results"
+        "Results": "Results",
+        "search": "Search",
+        "more": "More",
+        "and": "and",
+        "otherPermissions": "other Permissions",
+        "userProfile": "User Profile",
+        "logout": "Logout"
     }
 }

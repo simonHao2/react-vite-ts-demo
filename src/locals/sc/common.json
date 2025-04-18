@@ -14,6 +14,12 @@
         "Showing": "显示",
         "to": "至",
         "of": "条目,",
-        "Results": "总条目"
+        "Results": "总条目",
+        "search": "搜索",
+        "more": "更多",
+        "and": "和",
+        "otherPermissions": "其他权限",
+        "userProfile": "用户信息",
+        "logout": "退出登录"
     }
 }

@@ -11,6 +11,25 @@
             "users": "User List",
             "roles": "Role List"
         },
+        "charts": {
+            "title": "Charts",
+            "line": "Line Charts",
+            "histogram": "Histogram Charts"
+        },
+        "uiTemplate": {
+            "title": "UI Template",
+            "dragAndDropList": "Drag & Drop List"
+        },
+        "formTemplate": {
+            "title": "Form Template",
+            "basicForm": "Basic Form",
+            "advancedForm": "Advanced Form"
+        },
+        "system": {
+            "title": "System",
+            "settings": "Settings",
+            "logs": "System Logs"
+        },
         "Showing": "Showing",
         "to": "to",
         "of": "of",

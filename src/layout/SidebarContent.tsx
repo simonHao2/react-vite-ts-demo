@@ -121,14 +121,44 @@ const SidebarContent = () => {
                           <li>
                             <Link to="/#" className="has-arrow">
                                 <i className="bx bxs-bar-chart-alt-2"></i>
-                                <span>Charts</span>
+                                <span>{t("common.charts.title")}</span>
                             </Link>
                             <ul className="sub-menu" aria-expanded="true">
                                 <li>
-                                    <Link to="/lineCharts">Line Charts</Link>
+                                    <Link to="/lineCharts">{t("common.charts.line")}</Link>
                                 </li>
                                 <li>
-                                    <Link to="/histogramCharts">Histogram Charts</Link>
+                                    <Link to="/histogramCharts">{t("common.charts.histogram")}</Link>
+                                </li>
+                            </ul>
+                        </li>
+                        {/* ======UI Template====== */}
+                        <li>
+                            <Link to="/#" className="has-arrow">
+                                <i className="bx bx-layout"></i>
+                                <span>{t("common.uiTemplate.title")}</span>
+                            </Link>
+                            <ul className="sub-menu" aria-expanded="true">
+                                <li>
+                                    <Link to="/dragDropList">{t("common.uiTemplate.dragAndDropList")}</Link>
+                                </li>
+                                <li>
+                                    <Link to="/simpleDragList">Simple Drag List</Link>
+                                </li>
+                            </ul>
+                        </li>
+                        {/* ======Form Template====== */}
+                        <li>
+                            <Link to="/#" className="has-arrow">
+                                <i className="bx bx-file"></i>
+                                <span>{t("common.formTemplate.title")}</span>
+                            </Link>
+                            <ul className="sub-menu" aria-expanded="true">
+                                <li>
+                                    <Link to="/basicForm">{t("common.formTemplate.basicForm")}</Link>
+                                </li>
+                                <li>
+                                    <Link to="/advancedForm">{t("common.formTemplate.advancedForm")}</Link>
                                 </li>
                             </ul>
                         </li>

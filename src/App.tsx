@@ -14,6 +14,11 @@ import UserList from "./pages/Auth/Administration/UserList";
 import RoleList from "./pages/Auth/Administration/RoleList";
 import LineCharts from "./pages/Auth/Charts/LineCharts";
 import HistogramCharts from "./pages/Auth/Charts/HistogramCharts";
+import DragDropList from "./pages/Auth/UITemplate/DragDropList";
+import SimpleDragList from "./pages/Auth/UITemplate/SimpleDragList";
+import BasicForm from "./pages/Auth/FormTemplate/BasicForm";
+import AdvancedForm from "./pages/Auth/FormTemplate/AdvancedForm";
+
 const App = () => {
   return (
     <Routes>
@@ -30,6 +35,10 @@ const App = () => {
         <Route path="/roles" element={<RoleList />} />
         <Route path="/lineCharts" element={<LineCharts />} />
         <Route path="/histogramCharts" element={<HistogramCharts />} />
+        <Route path="/dragDropList" element={<DragDropList />} />
+        <Route path="/simpleDragList" element={<SimpleDragList />} />
+        <Route path="/basicForm" element={<BasicForm />} />
+        <Route path="/advancedForm" element={<AdvancedForm />} />
       </Route>
       <Route path="/login" element={<Login />} />
 

@@ -11,6 +11,25 @@
             "users": "用户列表",
             "roles": "角色列表"
         },
+        "charts": {
+            "title": "图表",
+            "line": "折线图",
+            "histogram": "柱状图"
+        },
+        "uiTemplate": {
+            "title": "UI 模板",
+            "dragAndDropList": "拖拽列表"
+        },
+        "formTemplate": {
+            "title": "表单模板",
+            "basicForm": "基础表单",
+            "advancedForm": "高级表单"
+        },
+        "system": {
+            "title": "系统",
+            "settings": "系统设置",
+            "logs": "系统日志"
+        },
         "Showing": "显示",
         "to": "至",
         "of": "条目,",
